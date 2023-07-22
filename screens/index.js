@@ -1,0 +1,7 @@
+export { default as Boarding } from "../screens/Boarding"
+export { default as Home } from "../screens/Home"
+export { default as Favourites } from "../screens/Favourites"
+export { default as Notifications } from "../screens/Notifications"
+export { default as Profile } from "../screens/Profile"
+// export { default as Cart } from "../screens/Cart"
+// export { default as Preloader } from "../screens/Preloader"
