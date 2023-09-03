@@ -1,19 +1,16 @@
-import { Text, View } from "react-native"
+import { useBottomTabBarHeight } from "@react-navigation/bottom-tabs"
 import Screen from "../components/Screen"
 import AppScreenNav from "../components/AppScreenNav"
 import { FavouritesItems } from "../components"
 import AppButton from "../components/AppButton"
-import { LogoutIcon } from "../components/Icons"
 
 const Favourites = () => {
+  const bottomTabHeight = useBottomTabBarHeight();
   return (
     <Screen>
-      
       <AppScreenNav screenName="Favourites" />
       <FavouritesItems />
-      <AppButton>Add all to my cart</AppButton>
-      {/* <View className="mt-[90vh] fixed bottom-0 left-0 z-50"> */}
-      {/* </View> */}
+      <AppButton size={20} style={{ position: 'absolute', zIndex: 10, width: '100%', left: 0, bottom: bottomTabHeight + 35, padding: 14 }}>Add all to my cart</AppButton>
     </Screen>
   )
 }

@@ -1,11 +1,7 @@
-import { FlatList, ImageBackground, Text, View } from 'react-native'
-import React from 'react'
+import { ImageBackground, View } from 'react-native'
 import AppText from '../components/AppText';
-import AppButton from '../components/AppButton';
-import AppBottomTabNavigator from '../AppBottomTabNavigator';
-import { COLORS } from '../config/configUtilities';
 
-const Boarding = ({ navigation }) => {
+const Boarding = () => {
   return (
     <View className="flex-1 ">
       <ImageBackground source={require('../assets/boardingImage.jpg')} alt="Boarding Image" resizeMode="cover" style={{ flex: 1, }}>
@@ -15,7 +11,6 @@ const Boarding = ({ navigation }) => {
           <View className="p-12">
             <AppText colorScheme="paragraphColor2" style={{ lineHeight: 30 }}>The best simple place where you discover most wonderful furnitures and make your home beautiful</AppText>
           </View>
-          {/* <AppButton fontFamily="GelasioSemiBold" style={{ width: 160, marginHorizontal: "auto", alignSelf: "center" }} onPress={() => { navigation.navigate("Home") }}>Get Started</AppButton> */}
         </View>
       </ImageBackground >
     </View >

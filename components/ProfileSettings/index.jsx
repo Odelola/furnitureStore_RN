@@ -1,6 +1,5 @@
 import { StyleSheet, View, Pressable } from 'react-native'
 import AppText from '../AppText'
-import { useNavigation } from '@react-navigation/native'
 import { ChevronRightIcon } from '../Icons'
 
 const ProfileSettingsLinks = [
@@ -32,9 +31,7 @@ const ProfileSettingsLinks = [
 ]
 
 
-const ProfileSettings = ({ navigation }) => {
-  console.log(navigation)
-  // const navigation = useNavigation();
+const ProfileSettings = () => {
   return (
     <View className="mt-8">
       {ProfileSettingsLinks.map((item, index) => ((
@@ -54,7 +51,7 @@ export default ProfileSettings
 
 const styles = StyleSheet.create({
   settingsShadow: {
-    elevation: 10,
+    elevation: 6,
     shadowColor: "#8A959E",
     shadowOffset: {width: -2, height: 4},
     shadowOpacity: 0.2,

@@ -1,11 +1,11 @@
-import { Text, TouchableOpacity } from 'react-native'
+import { Text, Pressable} from 'react-native'
 
-const AppButton = ({ size = 18, fontFamily = "NunitoSansRegular", children, onPress, style, }) => {
+const AppButton = ({ size = 18, fontFamily = "NunitoSansBold", children, onPress = () => null, style, }) => {
     return (
-        <TouchableOpacity style={[{
+        <Pressable style={[{
             backgroundColor: "#242424",
             padding: 20,
-            borderRadius: 4,
+            borderRadius: 8,
         }, style]}
         onPress={onPress}>
             <Text style={[{
@@ -14,7 +14,7 @@ const AppButton = ({ size = 18, fontFamily = "NunitoSansRegular", children, onPr
                 fontSize: size,
                 fontFamily: fontFamily,
             }]}>{children}</Text>
-        </TouchableOpacity>
+        </Pressable>
     )
 }
 

@@ -1,6 +1,6 @@
-import { View, StyleSheet, Pressable } from 'react-native'
+import { View, Pressable } from 'react-native'
 import AppText from "../AppText"
-import { CartIcon, ChevronLeftIcon } from "../Icons"
+import { ChevronLeftIcon } from "../Icons"
 
 const AppScreenNavSingleIcon = ({ screenName, leftIcon = <ChevronLeftIcon /> }) => {
     return (
@@ -8,8 +8,6 @@ const AppScreenNavSingleIcon = ({ screenName, leftIcon = <ChevronLeftIcon /> }) 
             {!leftIcon ? (<Pressable>
                 {leftIcon}
             </Pressable>) : (leftIcon)}
-            {/* <AppText colorScheme="headingColorBold" fontFamily='MerryWeatherBold' size={16}>{screenName}</AppText>
-            <CartIcon /> */}
             <AppText colorScheme="headingColorBold" fontFamily='MerryWeatherBold' size={16} style={{ flexBasis: "66%" }}>{screenName}</AppText>
         </View>
     )

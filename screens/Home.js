@@ -1,11 +1,17 @@
-import { SafeAreaView, Text, View, FlatList, ScrollView } from 'react-native'
+import { Suspense } from 'react';
+import { SafeAreaView, Text, View, FlatList, ScrollView, Image } from 'react-native'
+import client from "../api/sanityApi"
+
 import AppText from '../components/AppText'
 import { HomeSearchIcon, HomeCartIcon, ArmChairIcon } from "../components/Icons"
 import Screen from "../components/Screen"
 import { BedIcon, ChairIcon, LampIcon, StarIcon, TableIcon } from '../components/Icons';
 import { PopularItems } from "../components"
 import { COLORS } from '../config/configUtilities';
-
+import { createClient } from '@sanity/client'
+import { useEffect, useState } from 'react';
+import { getPopularFurnitures } from '../api/sanityApi';
+import SkeletonLoader from '../components/Loader/SkeletonLoader';
 
 const CategoriesListing = [
   {
@@ -39,17 +45,38 @@ const HomeCategories = ({ item }) => (
     <View className="w-[44px] h-[44px] p-6 flex items-center justify-center rounded-lg" style={{ backgroundColor: CategoriesListing.indexOf(item) === 0 ? COLORS.primary : COLORS.diasbaledColor }}>
       {item?.icon}
     </View>
-    <AppText size={14}>{item?.name}</AppText>
+    <AppText size={14} style={CategoriesListing.indexOf(item) === 0 && { fontFamily: "NunitoSansBold" }}>{item?.name}</AppText>
   </View>
 );
 
 const Home = () => {
+  const [furnituresData, setFurnituresData] = useState(null)
+  useEffect(() => {
+
+    client.fetch('*[_type == "furnitures"]')
+      .then((data) => setFurnituresData(prev => prev = data)).catch(console.error)
+
+  }, [])
+  const productImageCarousel = [
+    {
+      id: "_id" + "01",
+      image: "https://cdn.sanity.io/images/wvifwibk/production/d5fa2e380bfa4836b0a0b51c21efa5437ff527ed-687x1031.jpg",
+    },
+    {
+      id: "_id" + "02",
+      image: "https://cdn.sanity.io/images/wvifwibk/production/d5fa2e380bfa4836b0a0b51c21efa5437ff527ed-687x1031.jpg",
+    },
+    {
+      id: "_id" + "03",
+      image: "https://cdn.sanity.io/images/wvifwibk/production/d5fa2e380bfa4836b0a0b51c21efa5437ff527ed-687x1031.jpg",
+    },
+  ]
+
   return (
     <Screen>
       <FlatList
         data={[]}
         keyExtractor={() => "key"}
-        // contentContainerStyle={{backgroundColor: "magenta", flex: 1}}
         ListHeaderComponent={
           <>
             <View className="w-full flex-row justify-between items-center mt-6 mb-8">
@@ -69,7 +96,23 @@ const Home = () => {
               showsHorizontalScrollIndicator={false}
               renderItem={({ item }) => (<HomeCategories item={item} />)}
             />
-            <PopularItems />
+            {/* <FlatList
+              data={productImageCarousel}
+              horizontal
+              keyExtractor={(item) => item.id}
+              renderItem={({ item }) => {
+                return (
+                  <Image
+                    style={{ width: "100%", height: 200, borderRadius: 12, }}
+                    source={{ uri: "https://cdn.sanity.io/images/wvifwibk/production/d5fa2e380bfa4836b0a0b51c21efa5437ff527ed-687x1031.jpg" }}
+                    alt="Carousel Image" />
+                )
+              }
+              }
+            /> */}
+            <Suspense fallback={<SkeletonLoader />}>
+              <PopularItems data={furnituresData} />
+            </Suspense>
           </>
         }
         showsVerticalScrollIndicator={false}
