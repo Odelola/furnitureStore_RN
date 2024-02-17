@@ -1,5 +1,5 @@
 import { Suspense } from 'react';
-import { SafeAreaView, Text, View, FlatList, ScrollView, Image } from 'react-native'
+import { View, FlatList } from 'react-native'
 import client from "../api/sanityApi"
 
 import AppText from '../components/AppText'
@@ -8,7 +8,6 @@ import Screen from "../components/Screen"
 import { BedIcon, ChairIcon, LampIcon, StarIcon, TableIcon } from '../components/Icons';
 import { PopularItems } from "../components"
 import { COLORS } from '../config/configUtilities';
-import { createClient } from '@sanity/client'
 import { useEffect, useState } from 'react';
 import { getPopularFurnitures } from '../api/sanityApi';
 import SkeletonLoader from '../components/Loader/SkeletonLoader';
@@ -110,6 +109,7 @@ const Home = () => {
               }
               }
             /> */}
+            {/* <SkeletonLoader /> */}
             <Suspense fallback={<SkeletonLoader />}>
               <PopularItems data={furnituresData} />
             </Suspense>

@@ -21,13 +21,19 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.reghinx.furnitureApp"
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
     "packagerOpts": {
       "config": "metro.config.js"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "235adc11-918d-478c-b31f-d257e85baa7c"
+      }
     }
   }
 }
