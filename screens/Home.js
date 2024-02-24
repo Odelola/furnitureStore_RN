@@ -49,11 +49,13 @@ const HomeCategories = ({ item }) => (
 );
 
 const Home = () => {
-  const [furnituresData, setFurnituresData] = useState(null)
+  const [furnituresData, setFurnituresData] = useState(null);
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
 
     client.fetch('*[_type == "furnitures"]')
-      .then((data) => setFurnituresData(prev => prev = data)).catch(console.error)
+      .then((data) => { setLoading(prev => prev = false); setFurnituresData(prev => prev = data) }).catch(console.error)
 
   }, [])
   const productImageCarousel = [
@@ -86,6 +88,7 @@ const Home = () => {
               </View>
               <HomeCartIcon />
             </View>
+
             <FlatList
               bounces={false}
               data={CategoriesListing}
@@ -109,10 +112,8 @@ const Home = () => {
               }
               }
             /> */}
-            {/* <SkeletonLoader /> */}
-            <Suspense fallback={<SkeletonLoader />}>
-              <PopularItems data={furnituresData} />
-            </Suspense>
+            {loading && <SkeletonLoader />}
+            {!loading && <PopularItems data={furnituresData} />}
           </>
         }
         showsVerticalScrollIndicator={false}

@@ -7,11 +7,11 @@ import { useNavigation } from '@react-navigation/native';
 import { _currencyFormatter } from '../../../utils/currencyFormatter';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { _addToFavourites } from '../../../atoms/addToFavourites';
+const { width } = Dimensions.get("window");
+export const widthOfItem = width / 2.3;
 
 const PopularItem = ({ cardItem, index }) => {
-    const { width } = Dimensions.get("window");
     const { title, price, mainImage } = cardItem;
-    const widthOfItem = width / 2.3;
     const navigation = useNavigation();
     const [addToFavourites, setAddToFavourites] = useRecoilState(_addToFavourites);
     const _goToDetailsScreen = () => {
