@@ -1,7 +1,7 @@
 import { Suspense } from 'react';
 import { View, FlatList } from 'react-native'
 import client from "../api/sanityApi"
-
+import { StatusBar } from "expo-status-bar"
 import AppText from '../components/AppText'
 import { HomeSearchIcon, HomeCartIcon, ArmChairIcon } from "../components/Icons"
 import Screen from "../components/Screen"
@@ -75,6 +75,7 @@ const Home = () => {
 
   return (
     <Screen>
+      <StatusBar backgroundColor='white' />
       <FlatList
         data={[]}
         keyExtractor={() => "key"}
@@ -112,7 +113,11 @@ const Home = () => {
               }
               }
             /> */}
-            {loading && <SkeletonLoader />}
+            {loading && <>
+              <SkeletonLoader />
+              <SkeletonLoader />
+            </>
+            }
             {!loading && <PopularItems data={furnituresData} />}
           </>
         }

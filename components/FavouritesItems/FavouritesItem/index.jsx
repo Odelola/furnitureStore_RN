@@ -4,10 +4,10 @@ import AppText from '../../AppText'
 import { BlackBasketIcon, RemoveIcon } from '../../Icons';
 
 
-const FavouritesItem = ({ cardItem }) => {
+const FavouritesItem = ({ cardItem, lastItemOnTheList }) => {
     const { name, price, image } = cardItem;
     return (
-        <View className="flex-row justify-between border-b mb-4 py-4" style={{ borderBottomColor: COLORS.itemBorder }}>
+        <View className="flex-row justify-between mb-4 py-4" style={!lastItemOnTheList ? { borderBottomWidth: 1, borderBottomColor: COLORS.itemBorder } :  {}}>
             <Image source={image} alt="Favourites Item Image" className="w-[100px] h-[100px] rounded-md" resizeMode='cover' />
             <View className="basis-1/2">
                 <AppText style={{ color: COLORS.headingColorFaint }}>{name}</AppText>

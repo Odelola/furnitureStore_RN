@@ -6,7 +6,22 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 
 const AppBottomTab = createBottomTabNavigator();
-const AppStack = createNativeStackNavigator();
+const HomeStack = createNativeStackNavigator();
+
+const HomeStackScreen = () => {
+  return (
+    <HomeStack.Navigator
+      screenOptions={{ headerShown: false }}>
+      <HomeStack.Screen name="Home" component={Home} />
+      <HomeStack.Screen name="ProductDetails" component={ProductDetailsScreen} options={() => ({
+        tabBarStyle: {
+          display: "none",
+        },
+        tabBarButton: () => null,
+      })} />
+    </HomeStack.Navigator>
+  )
+}
 
 export default function AppBottomTabNavigator() {
   return (
@@ -31,7 +46,7 @@ export default function AppBottomTabNavigator() {
         tabBarStyle: { height: 60 }
       })}>
 
-      <AppBottomTab.Screen name="Home" component={Home}
+      <AppBottomTab.Screen name="Home" component={HomeStackScreen}
         options={{
           tabBarLabel: "Home",
           title: "Home",

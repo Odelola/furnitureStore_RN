@@ -5,7 +5,7 @@ import { widthOfItem } from "../PopularItems/PopularItem"
 import { useRef } from "react"
 export default SkeleteonLoader = () => {
     const animateOpacity = useRef(new Animated.Value(.5)).current;
-
+// check whether the animate function is still running
     const animateTheOpacity = () => {
         Animated.loop(
             Animated.sequence([
@@ -22,20 +22,6 @@ export default SkeleteonLoader = () => {
                 }),
             ])
         ).start()
-        // Animated.loop(
-
-        //     Animated.timing(animateOpacity, {
-        //         toValue: 0,
-        //         duration: 1000,
-        //         useNativeDriver: true
-        //     }).start(() => {
-        //         Animated.timing(animateOpacity, {
-        //             toValue: 1,
-        //             duration: 1000,
-        //             useNativeDriver: true,
-        //         }).start()
-        //     })
-        // ).start()
     }
     animateTheOpacity();
     return (

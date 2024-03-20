@@ -59,13 +59,14 @@ const FavouritesItemsProducts = [
   },
 ]
 
-const PopularItems = () => {
+const PopularItems = ({ bottomTabHeight }) => {
   return (
     <FlatList
+    contentContainerStyle={{ paddingBottom: bottomTabHeight * 2.75 }}
       bounces={false} // for ios
       data={FavouritesItemsProducts}
       keyExtractor={(_, index) => index}
-      renderItem={({ item }) => (<FavouritesItem cardItem={item} />)}
+      renderItem={({ item, index }) => (<FavouritesItem cardItem={item} lastItemOnTheList={index == FavouritesItemsProducts.length - 1} />)}
       showsVerticalScrollIndicator={false}
     />
   )

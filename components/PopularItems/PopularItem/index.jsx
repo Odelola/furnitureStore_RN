@@ -34,6 +34,7 @@ const PopularItem = ({ cardItem, index }) => {
                 <Image style={{ width: "100%", height: 200, borderRadius: 12, }}
                     //  source={require("../../../jonny-caspari-wsvCC6UyKjs-unsplash1.jpg")}
                     source={{ uri: urlForImage(mainImage).url() }}
+                    resizeMode='contain'
                     alt={title} />
             </View>
             <View className="mt-2">

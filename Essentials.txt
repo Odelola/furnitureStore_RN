@@ -11,3 +11,9 @@ add skeleton or nice loading state to the home screen
 
 
 check fonts loaded splash screen library thing to make sure fonts loads as apps grow
+
+
+
+
+add shadow to the back button
+the button in favourites screen should have a shadow

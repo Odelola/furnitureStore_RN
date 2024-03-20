@@ -9,8 +9,8 @@ const Favourites = () => {
   return (
     <Screen>
       <AppScreenNav screenName="Favourites" />
-      <FavouritesItems />
-      <AppButton size={20} style={{ position: 'absolute', zIndex: 10, width: '100%', left: 0, bottom: bottomTabHeight + 35, padding: 14 }}>Add all to my cart</AppButton>
+      <FavouritesItems bottomTabHeight={bottomTabHeight} />
+      <AppButton size={20} style={{ position: 'absolute', zIndex: 10, width: '100%', left: 0, bottom: bottomTabHeight * 2, padding: 14 }}>Add all to my cart</AppButton>
     </Screen>
   )
 }
