@@ -29,7 +29,7 @@ export default function AppBottomTabNavigator() {
       screenOptions={({ route }) => ({
         tabBarIcon: ({ focused }) => {
           switch (route.name) {
-            case "Home":
+            case "HomeStackScreen":
               return focused ? <HomeIconActive /> : <HomeIcon />
             case "Favourites":
               return focused ? <FavouritesIconActive /> : <FavouritesIcon />
@@ -43,10 +43,9 @@ export default function AppBottomTabNavigator() {
         },
         headerShown: false,
         tabBarShowLabel: false,
-        tabBarStyle: { height: 60 }
       })}>
 
-      <AppBottomTab.Screen name="Home" component={HomeStackScreen}
+      <AppBottomTab.Screen name="HomeStackScreen" component={HomeStackScreen}
         options={{
           tabBarLabel: "Home",
           title: "Home",
