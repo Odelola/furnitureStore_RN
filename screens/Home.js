@@ -1,5 +1,5 @@
 import { Suspense } from 'react';
-import { View, FlatList } from 'react-native'
+import { View, FlatList, Pressable } from 'react-native'
 import client from "../api/sanityApi"
 import { StatusBar } from "expo-status-bar"
 import AppText from '../components/AppText'
@@ -39,6 +39,7 @@ const CategoriesListing = [
   },
 ]
 
+
 const HomeCategories = ({ item }) => (
   <View className="flex items-center gap-2 mb-6">
     <View className="w-[44px] h-[44px] p-6 flex items-center justify-center rounded-lg" style={{ backgroundColor: CategoriesListing.indexOf(item) === 0 ? COLORS.primary : COLORS.diasbaledColor }}>
@@ -48,7 +49,7 @@ const HomeCategories = ({ item }) => (
   </View>
 );
 
-const Home = () => {
+const Home = ({ navigation }) => {
   const [furnituresData, setFurnituresData] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -87,7 +88,10 @@ const Home = () => {
                 <AppText fontFamily="GelasioRegular" style={{ textAlign: 'center' }}>Make home</AppText>
                 <AppText colorScheme="primary" fontFamily="GelasioBold" size={22}>BEAUTIFUL</AppText>
               </View>
-              <HomeCartIcon />
+              <Pressable onPress={() => navigation.navigate("Cart")}>
+
+                <HomeCartIcon />
+              </Pressable>
             </View>
 
             <FlatList

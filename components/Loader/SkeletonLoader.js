@@ -25,7 +25,7 @@ export default SkeleteonLoader = () => {
     }
     animateTheOpacity();
     return (
-        <Animated.View className="flex-row justify-between animate-pulse opacity-10" style={{ opacity: animateOpacity }}>
+        <Animated.View className="flex-row justify-between animate-pulse opacity-10 mb-6" style={{ opacity: animateOpacity }}>
             <View className="flex-row justify-between" style={{ width: widthOfItem }}>
                 <View className="space-y-4 animate-pulse md:space-y-0 md:space-x-8 md:flex md:items-center w-full">
                     <View className="flex items-center justify-center w-full h-48 bg-gray-300 rounded dark:bg-gray-700">

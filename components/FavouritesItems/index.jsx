@@ -59,7 +59,7 @@ const FavouritesItemsProducts = [
   },
 ]
 
-const PopularItems = ({ bottomTabHeight }) => {
+const FavouritesItems = ({ bottomTabHeight }) => {
   return (
     <FlatList
     contentContainerStyle={{ paddingBottom: bottomTabHeight * 2.75 }}
@@ -72,4 +72,4 @@ const PopularItems = ({ bottomTabHeight }) => {
   )
 }
 
-export default PopularItems
+export default FavouritesItems

@@ -127,7 +127,7 @@ const ProductDetailsScreen = () => {
   return (
     <View className="flex-1 relative bg-white">
       <CustomGoBackButton />
-      <ScrollView className="flex-1">
+      <ScrollView className="flex-1" alwaysBounceVertical={false} bounces={false} showsVerticalScrollIndicator={false}>
         <View style={{ paddingBottom: (bottomTabHeight * 2) }}>
           <StatusBar backgroundColor='transparent' />
           <View className="relative w-full">
@@ -137,6 +137,7 @@ const ProductDetailsScreen = () => {
               <ScrollIndicators />
               {/* <SectorCutOutFromSquareAsBorderRadiusDebugMethod /> */}
               <Animated.FlatList
+              alwaysBounceHorizontal={false}
                 data={productImageCarousel}
                 ref={pressableRef}
                 contentContainerStyle={{ background: "magenta", position: "relative" }}

@@ -1,7 +1,6 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Home, Favourites, Notifications, Profile, ProductDetailsScreen } from './screens';
 import { HomeIcon, FavouritesIcon, NotificationsIcon, ProfileIcon, HomeIconActive, FavouritesIconActive, NotificationsIconActive_notify, NotificationsIconActive, ProfileIconActive } from "./components/Icons"
-import AppStackNavigator from './AppStackNavigator';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 
