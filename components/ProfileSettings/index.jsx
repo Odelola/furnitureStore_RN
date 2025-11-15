@@ -1,5 +1,5 @@
 import { StyleSheet, Pressable } from 'react-native'
-import { AppBox, AppText } from '../../components'
+import { AppBox, AppText } from '../../shared'
 import { ChevronRightIcon } from '../Icons'
 
 const ProfileSettingsLinks = [

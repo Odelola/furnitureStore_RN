@@ -1,5 +1,5 @@
 import { ImageBackground } from 'react-native'
-import { AppText, AppBox, AppButton } from '../components';
+import { AppText, AppBox, AppButton } from '../shared';
 import { APP_SCREEN_NAMES } from '../constants';
 
 

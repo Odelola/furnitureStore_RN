@@ -1,6 +1,6 @@
 import React from 'react'
 import Screen from '../../components/Screen'
-import AppScreenNavSingleNavigator from '../../components/AppScreenNav/AppScreenNavSingleNavigator'
+import { AppScreenNavSingleNavigator } from '../../shared'
 
 const MyReviews = () => {
   return (

@@ -1,5 +1,5 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Home, Favourites, Notifications, Profile, ProductDetailsScreen, Onboarding, MyOrders, ShippingAddress, PaymentMethod, MyReviews, Settings } from './screens';
+import { Home, Favourites, Notifications, Profile, ProductDetailsScreen, MyOrders, ShippingAddress, PaymentMethod, MyReviews, Settings } from './screens';
 import { HomeIcon, FavouritesIcon, NotificationsIcon, ProfileIcon, HomeIconActive, FavouritesIconActive, NotificationsIconActive_notify, NotificationsIconActive, ProfileIconActive } from "./components/Icons"
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 

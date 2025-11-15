@@ -1,6 +1,6 @@
 import { StyleSheet, Platform, StatusBar, SafeAreaView } from 'react-native'
 import { COLORS, MEASUREMENTS } from '../../config/configUtilities'
-import { AppBox } from "../../components"
+import { AppBox } from "../../shared"
 
 
 const Screen = ({ children }) => {

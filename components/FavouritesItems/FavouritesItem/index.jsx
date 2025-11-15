@@ -1,6 +1,6 @@
 import { Image } from 'react-native'
 import { COLORS } from '../../../config/configUtilities';
-import { AppBox, AppText} from '../../../components'
+import {AppBox, AppText} from '../../../shared';
 import { BlackBasketIcon, RemoveIcon } from '../../Icons';
 
 

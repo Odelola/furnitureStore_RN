@@ -1,6 +1,4 @@
-import AppBox from '../AppBox'
-import AppText from '../AppText'
-import AppButton from '../AppButton'
+import {AppButton, AppText, AppBox} from '../../shared'
 import { COLORS } from '../../config/configUtilities'
 import { _crossPlatformShadow } from '../../utils'
 

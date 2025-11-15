@@ -1,6 +1,6 @@
 import { Dimensions, Image, Pressable } from 'react-native'
 import { COLORS } from '../../../config/configUtilities';
-import {AppBox, AppText} from '../../../components'
+import {AppBox, AppText} from '../../../shared';
 import { WhiteBasketIcon } from '../../Icons';
 import { urlForImage } from "../../../api/sanityApi"
 import { useNavigation } from '@react-navigation/native';
@@ -18,7 +18,6 @@ const PopularItem = ({ cardItem, index }) => {
         setAddToFavourites(prev => [...prev, {
             id: "2"
         }])
-        console.log(addToFavourites)
         navigation.navigate("ProductDetails", { cardItem })
     }
     return (

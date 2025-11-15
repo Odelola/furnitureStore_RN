@@ -1,10 +1,8 @@
 import { Image, ScrollView } from "react-native"
-import Screen from "../../components/Screen"
-import AppScreenNav from "../../shared"
-import { AppBox, AppText } from '../../shared';
-
-import { LogoutIcon } from "../../components/Icons"
-import ProfileSettings from "../../components/ProfileSettings"
+import Screen from "../components/Screen"
+import {AppBox, AppText, AppScreenNav} from "../shared"
+import { LogoutIcon } from "../components/Icons"
+import ProfileSettings from "../components/ProfileSettings"
 
 const Profile = ({ navigation }) => {
   return (
@@ -12,7 +10,7 @@ const Profile = ({ navigation }) => {
       <ScrollView showsVerticalScrollIndicator={false}>
         <AppScreenNav screenName="Profile" rightIcon={<LogoutIcon />} />
         <AppBox className="flex-row items-center gap-4">
-          <Image source={require('../../Profile.jpg')} />
+          <Image source={require('../Profile.jpg')} />
           <AppBox>
             <AppText colorScheme="headingColorBold" fontFamily="NunitoSansBold" size={20} >Bruno Pham</AppText>
             <AppText>bruno203@gmail.com</AppText>

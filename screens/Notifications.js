@@ -1,7 +1,7 @@
 import { Image } from "react-native"
 import Screen from "../components/Screen"
-import AppScreenNavSingleNavigator from "../components/AppScreenNav/AppScreenNavSingleNavigator"
-import { AppBox, AppText } from '../components';
+import {AppScreenNavSingleNavigator} from "../shared"
+import { AppBox, AppText } from '../shared';
 
 import { SearchIcon } from "../components/Icons"
 

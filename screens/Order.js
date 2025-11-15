@@ -1,7 +1,7 @@
 import Screen from '../components/Screen';
-import AppScreenNavSingleNavigator from '../components/AppScreenNav/AppScreenNavSingleNavigator';
+import { AppScreenNavSingleNavigator } from '../shared';
 import { FlatList } from 'react-native';
-import { AppBox, AppText } from "../components"
+import { AppBox, AppText } from "../shared"
 
 const Cart = () => {
     const CartItem = ({ cartItem }) => {

@@ -1,14 +1,14 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { StyleSheet, Image, ScrollView, TouchableOpacity,  Dimensions, Pressable, Animated, } from 'react-native'
+import { StyleSheet, Image, ScrollView, TouchableOpacity, Dimensions, Pressable, Animated } from 'react-native'
 import { StatusBar } from "expo-status-bar"
 import { useNavigation, useRoute } from '@react-navigation/native'
 import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
-import { AppBox, AppText, AppButton } from '../../shared';
-
-import { FavouritesIcon_black, MinusIcon, PlusIcon, ReviewStarIcon, ChevronLeftIcon } from '../../components/Icons';
-import { _currencyFormatter, _hexToRgba } from '../../utils';
-import { urlForImage } from '../../api/sanityApi';
-import { COLORS, MEASUREMENTS } from '../../config/configUtilities';
+import { AppBox, AppText } from '../shared'
+import { FavouritesIcon_black, MinusIcon, PlusIcon, ReviewStarIcon, ChevronLeftIcon } from '../components/Icons';
+import AppButton from '../shared';
+import { _currencyFormatter, _hexToRgba } from '../utils';
+import { urlForImage } from '../api/sanityApi';
+import { COLORS, MEASUREMENTS } from '../config/configUtilities';
 
 const ProductDetailsScreen = () => {
   const scrollX = useRef(new Animated.Value(0)).current;
@@ -34,7 +34,7 @@ const ProductDetailsScreen = () => {
   const route = useRoute();
   const productCarouselColors = ["#FFFFFF", "#B4916C", "#E4CBAD"];
   const { width, height } = Dimensions.get("screen");
-  const WIDTHOFPRODUCT = width / 1.15;
+  const WIDTHOFPRODUCT = width / 1.25;
   const HEIGHTOFPRODUCT = height / 1.75;
   const { params: { cardItem: { title, price, ratings, reviews, description, _id, mainImage } } } = route;
   const productImage = urlForImage(mainImage).url();
@@ -77,7 +77,7 @@ const ProductDetailsScreen = () => {
             </Pressable>
           )
         })}
-      </AppBox >
+      </AppBox>
     )
   }
   const ScrollIndicators = () => {
@@ -127,7 +127,7 @@ const ProductDetailsScreen = () => {
   return (
     <AppBox className="flex-1 relative bg-white">
       <CustomGoBackButton />
-      <ScrollView className="flex-1" alwaysBounceVertical={false} bounces={false} overScrollMode='never' showsVerticalScrollIndicator={false}>
+      <ScrollView className="flex-1" alwaysBounceVertical={false} bounces={false} showsVerticalScrollIndicator={false}>
         <AppBox style={{ paddingBottom: (bottomTabHeight * 2) }}>
           <StatusBar backgroundColor='transparent' />
           <AppBox className="relative w-full">
@@ -142,8 +142,7 @@ const ProductDetailsScreen = () => {
               ref={pressableRef}
               contentContainerStyle={{ background: "magenta", position: "relative" }}
               horizontal
-              // snapToInterval={WIDTHOFPRODUCT}
-              scrollEventThrottle={16}
+              snapToInterval={WIDTHOFPRODUCT}
               showsHorizontalScrollIndicator={false}
               bounces={false} //for ios
               pagingEnabled
@@ -153,13 +152,13 @@ const ProductDetailsScreen = () => {
               renderItem={({ item, index }) => {
                 const isColorWhite = productCarouselColors[index].toLowerCase().endsWith("fff")
                 return (
-                  <AppBox className="relative" style={{ overflow: 'hidden' }}>
+                  <AppBox className="relative">
                     <AppBox style={[StyleSheet.absoluteFillObject, { backgroundColor: !isColorWhite ? _hexToRgba(productCarouselColors[index], .5) : "none", zIndex: 30 }]} />
                     <Image
                       className="rounded-b-sm"
                       source={{ uri: item.image }}
                       style={{ width: WIDTHOFPRODUCT, height: HEIGHTOFPRODUCT, }}
-                      resizeMode='cover'
+                      resizeMode='contain'
                       alt={title} />
                   </AppBox>
                 )

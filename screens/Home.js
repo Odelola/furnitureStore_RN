@@ -1,16 +1,15 @@
 import { FlatList, Pressable } from 'react-native'
-import { COLORS } from '../../config/configUtilities';
-import client from "../../api/sanityApi"
+import client from "../api/sanityApi"
 import { StatusBar } from "expo-status-bar"
-import { AppBox, AppText } from '../../shared';
-
-import { HomeSearchIcon, HomeCartIcon, ArmChairIcon } from "../../components/Icons"
-import { PopularItems } from "../../components"
-import { BedIcon, ChairIcon, LampIcon, StarIcon, TableIcon } from '../../components/Icons';
-import SkeletonLoader from '../../components/Loader/SkeletonLoader';
-import Screen from "../../components/Screen"
+import {AppBox, AppText} from '../shared'
+import { HomeSearchIcon, HomeCartIcon, ArmChairIcon } from "../components/Icons"
+import Screen from "../components/Screen"
+import { BedIcon, ChairIcon, LampIcon, StarIcon, TableIcon } from '../components/Icons';
+import { PopularItems } from "../components"
+import { COLORS } from '../config/configUtilities';
 import { useEffect, useState } from 'react';
-import { APP_SCREEN_NAMES } from '../../constants';
+import { getPopularFurnitures } from '../api/sanityApi';
+import SkeletonLoader from '../components/Loader/SkeletonLoader';
 
 const CategoriesListing = [
   {
@@ -88,8 +87,8 @@ const Home = ({ navigation }) => {
                 <AppText fontFamily="GelasioRegular" style={{ textAlign: 'center' }}>Make home</AppText>
                 <AppText colorScheme="primary" fontFamily="GelasioBold" size={22}>BEAUTIFUL</AppText>
               </AppBox>
-              
-              <Pressable onPress={() => navigation.navigate(APP_SCREEN_NAMES.CART)}>
+              <Pressable onPress={() => navigation.navigate("Cart")}>
+
                 <HomeCartIcon />
               </Pressable>
             </AppBox>
@@ -118,6 +117,7 @@ const Home = ({ navigation }) => {
               }
             /> */}
             {loading && <>
+              <SkeletonLoader />
               <SkeletonLoader />
             </>
             }

@@ -1,8 +1,8 @@
 import { useBottomTabBarHeight } from "@react-navigation/bottom-tabs"
 import Screen from "../components/Screen"
-import AppScreenNav from "../components/AppScreenNav"
+import { AppScreenNav } from "../shared"
 import { FavouritesItems } from "../components"
-import AppButton from "../components/AppButton"
+import { AppButton } from "../shared"
 
 const Favourites = () => {
   const bottomTabHeight = useBottomTabBarHeight();

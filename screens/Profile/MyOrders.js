@@ -1,6 +1,6 @@
 import React from 'react'
 import Screen from '../../components/Screen'
-import AppScreenNavSingleNavigator from '../../components/AppScreenNav/AppScreenNavSingleNavigator'
+import { AppScreenNavSingleNavigator } from '../../shared'
 import { MyOrderView } from '../../components'
 import { useWindowDimensions } from 'react-native';
 import { TabBar, TabView } from 'react-native-tab-view';

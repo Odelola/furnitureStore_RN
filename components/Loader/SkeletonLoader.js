@@ -1,7 +1,7 @@
 
 import { Animated } from "react-native"
 import Svg, { Path } from "react-native-svg"
-import { AppBox } from "../../components"
+import { AppBox } from "../../shared"
 import { widthOfItem } from "../PopularItems/PopularItem"
 import { useRef } from "react"
 export default SkeleteonLoader = () => {
